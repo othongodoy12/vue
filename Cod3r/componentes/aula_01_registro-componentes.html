@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 01 - Registrar Components</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>   
+    
+    <!--<h1>Aula 01 - Registrar Components</h1>-->
+
+    <div id="app1">
+        <contador1></contador1>
+        <contador1></contador1>
+        <contador1></contador1>
+    </div> 
+
+    <hr>
+
+    <div id="app2">
+        <app-contador></app-contador>
+        <app-contador></app-contador>
+        <app-contador></app-contador>
+    </div> 
+    
+    <script>
+        //Registro Global
+        const contador = {
+            template: `
+                <div>
+                    <span>{{ contador }}</span>     
+                    <button @click="contador++">+</button>
+                    <button @click="contador--">-</button>
+                </div>
+            `,
+            data() {
+                return {
+                    contador: 0
+                }
+            }
+        }       
+
+        new Vue({
+            el: '#app1',
+            
+            //Registro Local (pertence apenas a essa instância Vue)
+            components: {
+                contador1: contador
+            }
+        })  
+
+        new Vue({
+            el: '#app2',
+
+            //Registro Local (pertence apenas a essa instância Vue)
+            components: {
+                'app-contador': contador
+            }
+        })      
+    </script>
+</body>
+</html>

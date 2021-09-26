@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 12 - Propriedades reativas</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <h1>Aula 12 - Propriedades reativas</h1>
+
+    <div id="app">
+        <button v-on:click="aumentar">Aumentar</button>
+        <button v-on:click="contador2++">Aumentar2</button>
+        <button v-on:click="diminuir">Diminuir</button>
+        <p>Contador: {{contador}} | {{contador2}}</p>
+        <p>Resultado: {{ resultado }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+                contador2: 0
+            },
+            computed: {
+                resultado() {
+                    console.log('método computed resultado chamado')     
+                    return this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5'              
+                }
+            },
+            methods: {
+                aumentar() {
+                    this.contador++
+                    resultado()
+                },
+                diminuir() {
+                    this.contador--
+                    resultado()
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

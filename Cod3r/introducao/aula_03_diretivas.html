@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 03 - Diretivas</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <h1>Aula 03 - Diretivas</h1>
+
+    <div id="app">
+        <!--
+            Diretivas são propriedades que não são nativas do html mas que podem ser criadas para que haja algum tipo de processamento por parte do JavaScript
+        -->
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Boas aulas!',
+                link: 'http://google.com.br'
+            },
+            methods: {
+                saudacao: function(){
+                    return this.titulo
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

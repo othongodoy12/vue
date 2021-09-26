@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 00 - Revisão Components</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>   
+    
+    <!--<h1>Aula 00 - Revisão Components</h1>-->
+
+    <div id="app">
+        <contador></contador>
+        <contador></contador>
+        <contador></contador>
+    </div> 
+    
+    <script>
+        //Registro Global
+        Vue.component('contador', {
+            template: `
+                <div>
+                    <span>{{ contador }}</span>     
+                    <button @click="contador++">+</button>
+                    <button @click="contador--">-</button>
+                </div>
+            `,
+            data() {
+                return {
+                    contador: 0
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app',
+        })      
+    </script>
+</body>
+</html>

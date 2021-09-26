@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 28 - Introdução aos Components</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>   
+    
+    <!--<h1>Aula 28 - Introdução aos Components</h1>-->
+
+    <div id="app">
+        <comp></comp>
+        <comp></comp>
+        <comp></comp>          
+    </div>    
+
+    <script>
+        Vue.component('comp', {
+            template: `
+                <div>
+                    <h1>{{ aula }}</h1>
+                    <h1>{{ modulo }}</h1>
+                    <button @click="alterarAula">Alterar Aula</button>
+                    <button @click="alterarModulo">Alterar Módulo</button>
+                </div>
+            `,
+            data: function(){
+                return {
+                    aula: 'Aula 28: Introdução ao Components',
+                    modulo: 'Instância Vue'
+                }
+            },
+            methods: {
+                alterarAula(){
+                    this.aula += '#'
+                },
+                alterarModulo(){
+                    this.modulo += '#'
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>

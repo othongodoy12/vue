@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 19 - Condicionais</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>   
+    
+    <h1>Aula 19 - Condicionais</h1>
+
+    <div id="app">
+        <p v-if="logado">Usuário logado: {{ nome }}</p>
+        <p v-else-if="anonimo">Navegando anonimamente</p>
+        <p v-else>Nenhum usuário logado</p>
+        <button @click="logado = !logado">{{ logado ? 'Sair' : 'Entrar' }}</button>
+        <input type="checkbox" v-model="anonimo">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                nome: 'Maria',
+                logado: false,
+                anonimo: false
+            }            
+        })
+    </script>
+
+</body>
+</html>

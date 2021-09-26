@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 02 - Binding de Atributos</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <h1>Aula 02 - Binding de Atributos</h1>
+
+    <div id="app">
+        <p>{{ titulo }}</p>
+        <p>{{ saudacao() }}</p>
+
+        <!--o v-bind serve para fazer a ligação entre o atributo da tag e algo que está na vue instance-->
+        <a v-bind:href="link">Google</a>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Boas aulas!',
+                link: 'http://google.com.br'
+            },
+            methods: {
+                saudacao: function(){
+                    return this.titulo
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

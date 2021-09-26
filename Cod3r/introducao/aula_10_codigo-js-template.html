@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 10 - Código JavaScript no Template</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <h1>Aula 10 - Código JavaScript no Template</h1>
+
+    <div id="app">
+        <p>{{contador}}</p>
+        <p>{{ contador >= 10 ? 'Maior ou igual a 10' : 'Menor do que 10' }}</p>
+
+        <!--v-on intercepta os eventos para executar uma ação-->
+        <button v-on:click="somar">Somar 1</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0                
+            },
+            methods: {
+                somar() {
+                    this.contador++
+                }                
+            }
+        })
+    </script>
+
+</body>
+</html>

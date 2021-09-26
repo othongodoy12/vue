@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 24 - v-for-template</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>   
+    
+    <h1>Aula 24 - v-for-template</h1>
+
+    <div id="app">
+        <ul>
+            <li v-for="cor in cores">{{ cor }}</li>
+        </ul>
+        <hr>
+        <template v-for="(cor, i) in cores">
+            <h1>{{ cor }}</h1>
+            <p>{{ i }}</p>
+        </template>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                cores: ['red', 'green', 'yellow', 'blue'],
+                pessoas: [
+                    { nome: 'João', idade: 20, peso: 70 },
+                    { nome: 'Maria', idade: 25, peso: 80 }
+                ]
+            }            
+        })
+    </script>
+
+    <style>
+        h1, p {
+            display: inline;
+        }
+    </style>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 04 - Evitando Re-renderização com o v-once</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <h1>Aula 04 - Evitando Re-renderização com o v-once</h1>
+
+    <div id="app">
+        <!--o v-once não irá mais monitorar esse elemento para saber se o conteudo precisa ser alterado-->
+        <p v-once>{{ titulo }}</p>
+        
+        <p>{{ saudacao() }}</p>
+
+        <!--o v-bind serve para fazer a ligação entre o atributo da tag e algo que está na vue instance-->
+        <a v-bind:href="link">Google</a>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Boas aulas!',
+                link: 'http://google.com.br'
+            },
+            methods: {
+                saudacao: function(){
+                    this.titulo = 'Boa aula!'
+                    return this.titulo
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
